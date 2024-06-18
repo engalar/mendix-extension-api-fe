@@ -1,5 +1,6 @@
 import Avatar from 'components/Avatar'
 import logo from 'assets/logo.svg'
+import { useMxExtensionAPI } from 'hooks/useMxExtensionAPI'
 
 const randoms = [
   [1, 2],
@@ -8,6 +9,7 @@ const randoms = [
 ]
 
 function App() {
+  const [postMessage] = useMxExtensionAPI({})
   return (
     <div className="relative overflow-hidden bg-white">
       <div className="h-screen sm:pb-40 sm:pt-24 lg:pb-48 lg:pt-40">
@@ -26,12 +28,12 @@ function App() {
           </div>
           <div>
             <div className="my-10">
-              <a
-                href="vscode://"
-                className="inline-block rounded-md border border-transparent bg-indigo-600 px-8 py-3 text-center font-medium text-white hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-700 focus:ring-offset-2"
+              <button
+                className="mb-2 mr-2 rounded-lg bg-indigo-600 px-5 py-2.5 text-center text-sm font-medium text-white hover:bg-indigo-700 focus:ring-4 focus:ring-indigo-300"
+                onClick={() => postMessage('ShowDevTools')}
               >
-                Start building for free
-              </a>
+                ShowDevTools
+              </button>
               <div
                 aria-hidden="true"
                 className="pointer-events-none mt-10 md:mt-0 lg:absolute lg:inset-y-0 lg:mx-auto lg:w-full lg:max-w-7xl"
